@@ -72,16 +72,12 @@
 }
 
 /*
- * GitHub (inline SVG): white backing + #222222 fill, inverted -> #dddddd mark on black.
- * PNGs (white mark on a ~#00436b plate) are the reverse, a #222222 mark on white:
+ * GitHub (inline SVG) is colored directly in Header.tsx: white mark on black.
+ * PNGs (white mark on a ~#00436b plate) render as a #222222 mark on white:
  * grayscale takes the plate to ~22% gray, contrast(2) pushes it to black,
  * brightness(0.867) maps white to #dddddd (0.867 = 1 - 0x22/255), and invert
  * swaps them to a white plate with a #222222 mark.
  */
-.links svg {
-  filter: invert();
-}
-
 .links img {
   filter: grayscale(1) contrast(2) brightness(0.867) invert(1);
 }

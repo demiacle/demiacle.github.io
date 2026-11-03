@@ -12,7 +12,6 @@ interface Social {
 }
 
 const SOCIALS: Social[] = [
-  { label: 'Twitter', href: 'https://twitter.com/demiacle', icon: '/media/twitter2.png' },
   {
     label: 'CodePen',
     href: 'https://codepen.io/Demiacle/pens/public/?grid_type=list',
@@ -27,7 +26,7 @@ const SOCIALS: Social[] = [
   },
 ];
 
-const backing = { background: 'white', borderRadius: '20px' };
+const githubPlate = { background: '#000', borderRadius: '20px' };
 // White only inside the icon's round plate (~96% of its radius), so no light ring shows at the edge.
 const cutoutFill = { background: 'radial-gradient(circle closest-side, #fff 90%, transparent 91%)' };
 
@@ -43,7 +42,13 @@ export default function Header() {
         <ul className={styles.links}>
           <li>
             <a href="https://github.com/demiacle" aria-label="GitHub">
-              <svg style={backing} aria-hidden="true" fill="#222222" className={styles.icon} viewBox="0 0 16 16">
+              <svg
+                style={githubPlate}
+                aria-hidden="true"
+                fill="#fff"
+                className={styles.icon}
+                viewBox="0 0 16 16"
+              >
                 <path d={GITHUB_ICON_PATH} />
               </svg>
             </a>
