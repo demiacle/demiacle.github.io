@@ -3,34 +3,39 @@ import type { Project } from './types';
 import { useInViewport } from './useInViewport';
 
 /**
- * Displays a project preview along with its descriptors rendered as
- * key/value pairs in a code-like layout.
+ * A project card: screenshot on top, descriptors below rendered as a
+ * pseudo-JavaScript function (`function newProject( title ){ ... }`).
  */
 export default function PortfolioItem({ data }: { data: Project }) {
-  // customData is the actual data that will be displayed
-  const { title, url_link, image, img_poster, sort_order: _sortOrder, ...customData } = data;
-  const { ref, inViewport } = useInViewport<HTMLDivElement>('-20%');
+  // customData is everything shown as `key: "value"` lines on the card.
+  const { title, url_link, image: _video, img_poster, sort_order: _sortOrder, ...customData } = data;
+  const { ref, inViewport } = useInViewport<HTMLElement>('-20%');
 
   return (
-    <div ref={ref}>
-      <div className={styles.image}>
-        <a href={url_link}>
-          <video
-            poster={`/media/${img_poster}`}
-            // Reserve the poster's box (all posters are 540x300) so the layout doesn't jump.
-            width={540}
-            height={300}
-            className={inViewport ? styles.opaque : styles.transparent}
-            muted
-            preload="none"
-          >
-            {image && <source src={`/media/${image}`} type="video/mp4" />}
-            Browser not supported
-          </video>
-        </a>
-      </div>
+    <article
+      ref={ref}
+      className={`${styles.card} ${inViewport ? styles.opaque : styles.transparent}`}
+      data-linked={url_link ? '' : undefined}
+    >
+      <img
+        className={styles.image}
+        src={`/media/${img_poster}`}
+        alt=""
+        width={540}
+        height={300}
+        loading="lazy"
+        decoding="async"
+      />
       <div className={styles.function}>
-        <h3>{title}</h3>
+        <h3>
+          {url_link ? (
+            <a className={styles.link} href={url_link}>
+              {title}
+            </a>
+          ) : (
+            title
+          )}
+        </h3>
         <ul>
           {Object.entries(customData).map(([key, value]) => (
             <li key={key}>
@@ -40,6 +45,6 @@ export default function PortfolioItem({ data }: { data: Project }) {
           ))}
         </ul>
       </div>
-    </div>
+    </article>
   );
 }

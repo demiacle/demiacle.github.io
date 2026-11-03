@@ -1,0 +1,72 @@
+/*
+ * Design tokens. Every value here comes from the original site's palette;
+ * components reference these instead of hard-coding colors and sizes.
+ */
+:root {
+  /* Surfaces (deep teal) */
+  --color-bg: #022834;
+  --color-bg-deep: #011826;
+  --color-surface: rgba(3, 40, 51, 0.5);
+  --color-surface-card: rgba(1, 24, 38, 0.72);
+  --color-surface-glow: #033748;
+  --color-header: rgba(2, 40, 52, 0.9);
+
+  /* Lines */
+  --color-line: #0a5b5e;
+  --color-line-strong: #29787c;
+  --color-line-accent: #098266;
+
+  /* Accents */
+  --color-accent: #119e8b;
+  --color-accent-bright: #13c8c1;
+  --color-ring: #0ba1a6;
+  --color-star: #1a9090;
+
+  /* Text */
+  --color-text: #dddddd;
+  --color-text-strong: #ffffff;
+  --color-link: #6abaff;
+
+  /* Code-card syntax colors */
+  --color-syntax: #8290b0; /* was #6a7696; lifted to pass WCAG AA on the dark surface */
+  --color-string: #fc9354;
+  --color-key: #67a6e3;
+
+  /* Type */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.6rem;
+
+  /* Space (4px grid) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Shape and depth */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --shadow-text: 1px 1px 1px #000;
+  --shadow-panel: 0 -20px 104px var(--color-bg-deep);
+  --shadow-portrait: 0 6px 80px #000f13;
+  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.35);
+
+  /* Layout */
+  --page-max: 60rem;
+  --page-gutter: var(--space-4);
+  --header-height: 3.5rem;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration: 200ms;
+}

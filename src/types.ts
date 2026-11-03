@@ -7,7 +7,7 @@ export interface Project {
   img_poster: string;
   sort_order: number;
   url_link?: string;
-  /** Optional preview media file in /media, shown via <video>. */
+  /** Legacy preview file. No longer rendered; cards show `img_poster`. */
   image?: string;
   [field: string]: string | number | undefined;
 }

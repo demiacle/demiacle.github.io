@@ -1,49 +1,76 @@
-.blurb {
-  padding: 1rem;
-  border: 1px solid #098266;
-  border-radius: 3px;
-  box-shadow: inset 0px 0px 138px #033748;
-  color: #ddd;
-  text-align: justify;
-  font-size: 1.5rem;
-  background-color: rgba(3, 40, 51, 0.5);
-}
-
-.blurb a {
-  color: #6abaff;
-  text-decoration: none;
-}
-
-.blurb p {
-  margin: 0.5rem 0 1rem 0;
+.container {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-6);
   text-align: center;
 }
 
 .portrait {
   width: 240px;
-  margin: 1rem auto;
-  display: block;
-  border-radius: 440px;
-  border: 2px solid #0ba1a6;
-  box-shadow: 0 6px 80px #000f13;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--color-ring);
+  box-shadow: var(--shadow-portrait);
+}
+
+.blurb {
+  width: 100%;
+  padding: var(--space-6) var(--space-4);
+  border: 1px solid var(--color-line-accent);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  box-shadow: inset 0 0 138px var(--color-surface-glow);
+  color: var(--color-text);
+}
+
+.tagline {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-text);
+  text-wrap: balance;
 }
 
 .skills {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--space-6) var(--space-4);
   max-width: 48rem;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
 }
 
-.skills > * {
-  margin-left: 1rem;
-  margin-right: 1rem;
+.skill {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-1);
 }
 
-@media (min-width: 426px) {
-  .skills > * {
-    margin-left: 2rem;
-    margin-right: 2rem;
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+/* Presentation attributes can't read CSS variables, so color the stars here. */
+.stars path {
+  fill: var(--color-star);
+  stroke: var(--color-star);
+}
+
+.skillName {
+  font-size: var(--text-md);
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 40rem) {
+  .blurb {
+    padding: var(--space-8);
+  }
+
+  .tagline {
+    font-size: 1.5rem;
   }
 }
