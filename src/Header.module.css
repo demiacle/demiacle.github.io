@@ -71,9 +71,19 @@
   outline-offset: 1px;
 }
 
-.links svg,
-.links img {
+/*
+ * All icons render as a #dddddd mark on a black plate.
+ * GitHub (inline SVG): white backing + #222222 fill, inverted.
+ * PNGs (white mark on a ~#00436b plate): grayscale takes the plate to ~22% gray,
+ * contrast(2) pushes it to black, and brightness(0.867) maps white to #dddddd
+ * (0.867 = 1 - 0x22/255, matching the inverted #222222 above).
+ */
+.links svg {
   filter: invert();
+}
+
+.links img {
+  filter: grayscale(1) contrast(2) brightness(0.867);
 }
 
 .icon {

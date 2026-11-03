@@ -7,8 +7,8 @@ interface Social {
   label: string;
   href: string;
   icon: string;
-  /** Some source icons need a white backing to survive the invert filter. */
-  whiteBacking?: boolean;
+  /** The icon's mark is a transparent cutout and needs a white fill behind it. */
+  cutout?: boolean;
 }
 
 const SOCIALS: Social[] = [
@@ -17,7 +17,7 @@ const SOCIALS: Social[] = [
     label: 'CodePen',
     href: 'https://codepen.io/Demiacle/pens/public/?grid_type=list',
     icon: '/media/codepen2.png',
-    whiteBacking: true,
+    cutout: true,
   },
   { label: 'freeCodeCamp', href: 'https://www.freecodecamp.org/demiacle', icon: '/media/fcc_icon2.png' },
   {
@@ -28,6 +28,8 @@ const SOCIALS: Social[] = [
 ];
 
 const backing = { background: 'white', borderRadius: '20px' };
+// White only inside the icon's round plate (~96% of its radius), so no light ring shows at the edge.
+const cutoutFill = { background: 'radial-gradient(circle closest-side, #fff 90%, transparent 91%)' };
 
 export default function Header() {
   return (
@@ -41,17 +43,17 @@ export default function Header() {
         <ul className={styles.links}>
           <li>
             <a href="https://github.com/demiacle" aria-label="GitHub">
-              <svg style={backing} aria-hidden="true" fill="#003e60" className={styles.icon} viewBox="0 0 16 16">
+              <svg style={backing} aria-hidden="true" fill="#222222" className={styles.icon} viewBox="0 0 16 16">
                 <path d={GITHUB_ICON_PATH} />
               </svg>
             </a>
           </li>
-          {SOCIALS.map(({ label, href, icon, whiteBacking }) => (
+          {SOCIALS.map(({ label, href, icon, cutout }) => (
             <li key={label}>
               <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
                 <img
                   className={styles.icon}
-                  style={whiteBacking ? backing : undefined}
+                  style={cutout ? cutoutFill : undefined}
                   src={icon}
                   alt=""
                   width={28}
