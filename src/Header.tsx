@@ -7,18 +7,9 @@ interface Social {
   label: string;
   href: string;
   icon: string;
-  /** The icon's mark is a transparent cutout and needs a white fill behind it. */
-  cutout?: boolean;
 }
 
 const SOCIALS: Social[] = [
-  {
-    label: 'CodePen',
-    href: 'https://codepen.io/Demiacle/pens/public/?grid_type=list',
-    icon: '/media/codepen2.png',
-    cutout: true,
-  },
-  { label: 'freeCodeCamp', href: 'https://www.freecodecamp.org/demiacle', icon: '/media/fcc_icon2.png' },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/daniel-escobedo-b5165779',
@@ -27,8 +18,6 @@ const SOCIALS: Social[] = [
 ];
 
 const githubPlate = { background: '#000', borderRadius: '20px' };
-// White only inside the icon's round plate (~96% of its radius), so no light ring shows at the edge.
-const cutoutFill = { background: 'radial-gradient(circle closest-side, #fff 90%, transparent 91%)' };
 
 export default function Header() {
   return (
@@ -53,12 +42,11 @@ export default function Header() {
               </svg>
             </a>
           </li>
-          {SOCIALS.map(({ label, href, icon, cutout }) => (
+          {SOCIALS.map(({ label, href, icon }) => (
             <li key={label}>
               <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
                 <img
                   className={styles.icon}
-                  style={cutout ? cutoutFill : undefined}
                   src={icon}
                   alt=""
                   width={28}

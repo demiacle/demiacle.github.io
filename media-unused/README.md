@@ -8,7 +8,8 @@ This folder is outside `public/`, so nothing in it is deployed.
 - `twitter.jpg`, `linkedin.png`, `codepen.png`, `fcc_icon.png`, `github.svg`:
   earlier versions of the header icons. The `*2.png` versions in
   `public/media/` are the ones in use.
-- `twitter2.png`: header icon, removed along with the Twitter link.
+- `twitter2.png`, `codepen2.png`, `fcc_icon2.png`: header icons, removed along
+  with their links.
 - `bg_texture2.jpg`, `git_showcase.png`: never referenced by the recovered
   source.
 
