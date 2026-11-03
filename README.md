@@ -5,7 +5,7 @@ served by GitHub Pages at https://demiacle.github.io.
 
 ## Run it
 
-Requires Node 20.19+ (`.nvmrc` pins 24).
+Requires Node 22.12+ or 24 (`.nvmrc` pins 24).
 
 ```sh
 npm install
@@ -24,7 +24,7 @@ npm run check      # typecheck + lint + format check + tests
 | Script                 | What it does                                                    |
 | ---------------------- | --------------------------------------------------------------- |
 | `npm run typecheck`    | TypeScript in strict mode                                       |
-| `npm run lint`         | ESLint: TypeScript, React hooks and accessibility (jsx-a11y)    |
+| `npm run lint`         | oxlint: TypeScript, React hooks and accessibility (jsx-a11y)    |
 | `npm run format`       | Prettier, rewriting files (`format:check` only reports)         |
 | `npm test`             | Vitest + Testing Library (`test:watch` to rerun on save)        |
 
