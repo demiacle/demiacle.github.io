@@ -1,0 +1,117 @@
+.image {
+  background-color: transparent;
+}
+video {
+  border: 1px solid #29787c;
+  max-width: 100%;
+}
+.function {
+  text-align: left;
+  max-width: 500px;
+  margin: auto;
+  font-size: 1.125rem;
+  text-shadow: 1px 1px 1px black;
+  letter-spacing: 0.05rem;
+  padding: 0.5rem;
+  line-height: 1.8rem;
+}
+
+.function h3 {
+  color: #fc9354;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.function h3::before {
+  content: '( ';
+  font-size: 12pt;
+  color: #6a7696;
+  font-weight: normal;
+  text-shadow: none;
+}
+.function h3::after {
+  content: ' ) => {';
+  font-size: 12pt;
+  color: #6a7696;
+  font-weight: normal;
+  text-shadow: none;
+}
+.function:last-child::after {
+  text-shadow: none;
+  content: '}';
+  font-size: 12pt;
+  color: #6a7696;
+}
+.function ul {
+  padding-left: 20px;
+  margin: 0;
+}
+.function ul::before {
+  content: 'var properties = {';
+  color: #6a7696;
+  text-shadow: none;
+}
+.function ul::after {
+  text-shadow: none;
+  content: '}\Areturn properties;';
+  color: #6a7696;
+  white-space: pre;
+}
+.function ul li {
+  list-style: none;
+  margin-left: 20px;
+  color: #6a7696;
+}
+.function .in_quotes {
+  color: #fc9354;
+}
+.function .in_quotes::after {
+  content: '",';
+  color: #6a7696;
+  text-shadow: none;
+}
+.function .in_quotes::before {
+  content: '"';
+  color: #6a7696;
+  text-shadow: none;
+}
+.function ul li:last-child .in_quotes::after {
+  content: '"';
+  color: #6a7696;
+  text-shadow: none;
+}
+.function ul li span {
+  color: #67a6e3;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
+}
+.function ul li span::after {
+  content: ': ';
+}
+
+.opaque {
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+.transparent {
+  opacity: 0.3;
+  transition: all 1s ease;
+}
+
+@media (min-width: 426px) {
+  .function h3::before {
+    content: 'function newProject( ';
+    font-size: 12pt;
+    color: #6a7696;
+    font-weight: normal;
+    text-shadow: none;
+  }
+  .function h3::after {
+    content: ' ){';
+    font-size: 12pt;
+    color: #6a7696;
+    font-weight: normal;
+    text-shadow: none;
+  }
+}

@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  margin: auto;
+  background-image: url(/media/test.jpg);
+  background-repeat: repeat-x, repeat;
+  background-position: top;
+}
+
+body {
+  background-color: #022834;
+}
+
+.inner_container {
+  max-width: 900px;
+  margin: auto;
+}
+
