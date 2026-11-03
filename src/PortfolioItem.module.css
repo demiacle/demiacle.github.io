@@ -4,6 +4,8 @@
 video {
   border: 1px solid #29787c;
   max-width: 100%;
+  height: auto;
+  aspect-ratio: 540 / 300;
 }
 .function {
   text-align: left;

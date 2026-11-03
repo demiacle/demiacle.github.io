@@ -17,6 +17,9 @@ export default function PortfolioItem({ data }: { data: Project }) {
         <a href={url_link}>
           <video
             poster={`/media/${img_poster}`}
+            // Reserve the poster's box (all posters are 540x300) so the layout doesn't jump.
+            width={540}
+            height={300}
             className={inViewport ? styles.opaque : styles.transparent}
             muted
             preload="none"

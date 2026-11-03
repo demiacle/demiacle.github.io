@@ -47,7 +47,11 @@ export default function AboutMe() {
     <div className={styles.container}>
       <div className={styles.inner_container}>
         <div>
-          <img className={styles.portrait} src="/media/headshot.jpg" alt="Daniel Escobedo" />
+          <img className={styles.portrait} src="/media/headshot.jpg"
+            alt="Daniel Escobedo"
+            width={240}
+            height={240}
+          />
         </div>
         <div className={styles.blurb}>
           <p>Full stack developer specializing in MERN stack.</p>
