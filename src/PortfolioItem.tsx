@@ -8,7 +8,7 @@ import { useInViewport } from './useInViewport';
  */
 export default function PortfolioItem({ data }: { data: Project }) {
   // customData is everything shown as `key: "value"` lines on the card.
-  const { title, url_link, image: _video, img_poster, sort_order: _sortOrder, ...customData } = data;
+  const { title, url_link, img_poster, sort_order: _sortOrder, ...customData } = data;
   const { ref, inViewport } = useInViewport<HTMLElement>('-20%');
 
   return (
