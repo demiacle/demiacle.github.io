@@ -27,12 +27,13 @@ function Star({ filled }: { filled: boolean }) {
 function Skill({ name, rating }: { name: string; rating: number }) {
   return (
     <li className={styles.skill}>
-      <span className={styles.stars} role="img" aria-label={`${rating} out of ${MAX_RATING}`}>
+      <span className={styles.stars} aria-hidden="true">
         {Array.from({ length: MAX_RATING }, (_, i) => (
           <Star key={i} filled={i < rating} />
         ))}
       </span>
       <span className={styles.skillName}>{name}</span>
+      <span className={styles.srOnly}>{`, ${rating} out of ${MAX_RATING}`}</span>
     </li>
   );
 }

@@ -2,6 +2,9 @@ import Header from './Header';
 import AboutMe from './AboutMe';
 import PortfolioContainer from './PortfolioContainer';
 
+// Read once at module load so rendering stays pure.
+const YEAR = new Date().getFullYear();
+
 export default function App() {
   return (
     <div className="app">
@@ -15,7 +18,7 @@ export default function App() {
       </main>
       <footer className="site-footer">
         {'// © '}
-        {new Date().getFullYear()} Daniel Escobedo
+        {YEAR} Daniel Escobedo
       </footer>
     </div>
   );
