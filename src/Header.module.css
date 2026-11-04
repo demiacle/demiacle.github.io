@@ -8,6 +8,7 @@
   -webkit-backdrop-filter: blur(8px);
 }
 
+/* "Daniel Escobedo | Demiacle | LinkedIn" */
 .inner_container {
   max-width: var(--page-max);
   min-height: var(--header-height);
@@ -17,79 +18,42 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2) var(--space-4);
-}
-
-.demiacle {
+  column-gap: 0.5ch;
   color: var(--color-text-strong);
   font-size: var(--text-xl);
   line-height: 2.25rem;
   letter-spacing: -0.05rem;
-  text-decoration: none;
   text-shadow: var(--shadow-text);
+}
+
+.name,
+.item {
   white-space: nowrap;
 }
 
-.demiacle:hover .transparent {
-  opacity: 0.8;
-}
-
-.transparent {
+.separator {
+  margin-right: 0.5ch;
   opacity: 0.4;
-  transition: opacity var(--duration) var(--ease);
 }
 
-.links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  margin: 0;
-  padding: var(--space-1);
-  list-style: none;
-  background-color: var(--color-accent);
-  border-radius: var(--radius-md);
-}
-
-.links a {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: var(--radius-md);
+.link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
   transition:
-    background-color var(--duration) var(--ease),
-    transform var(--duration) var(--ease);
+    color var(--duration) var(--ease),
+    text-decoration-color var(--duration) var(--ease);
 }
 
-.links a:hover {
-  background-color: rgba(255, 255, 255, 0.18);
-  transform: translateY(-1px);
-}
-
-.links a:focus-visible {
-  outline-color: var(--color-text-strong);
-  outline-offset: 1px;
-}
-
-/*
- * GitHub (inline SVG) is colored directly in Header.tsx: white mark on black.
- * PNGs (white mark on a ~#00436b plate) render as a #222222 mark on white:
- * grayscale takes the plate to ~22% gray, contrast(2) pushes it to black,
- * brightness(0.867) maps white to #dddddd (0.867 = 1 - 0x22/255), and invert
- * swaps them to a white plate with a #222222 mark.
- */
-.links img {
-  filter: grayscale(1) contrast(2) brightness(0.867) invert(1);
-}
-
-.icon {
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: var(--radius-md);
+.link:hover {
+  color: var(--color-accent-bright);
+  text-decoration-color: var(--color-accent-bright);
 }
 
 @media (min-width: 30rem) {
   .inner_container {
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 }
