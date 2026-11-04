@@ -1,12 +1,8 @@
 import styles from './Header.module.css';
 
 const LINKS = [
-  { label: 'Demiacle', href: 'https://github.com/demiacle', title: 'GitHub' },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/daniel-escobedo-b5165779/',
-    title: 'LinkedIn',
-  },
+  { label: 'GitHub', href: 'https://github.com/demiacle' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-escobedo-b5165779/' },
 ];
 
 function Separator() {
@@ -22,16 +18,10 @@ export default function Header() {
     <header className={styles.container}>
       <nav className={styles.inner_container} aria-label="Primary">
         <span className={styles.name}>Daniel&nbsp;Escobedo</span>
-        {LINKS.map(({ label, href, title }) => (
+        {LINKS.map(({ label, href }) => (
           <span key={href} className={styles.item}>
             <Separator />
-            <a
-              className={styles.link}
-              href={href}
-              title={title}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a className={styles.link} href={href} target="_blank" rel="noopener noreferrer">
               {label}
             </a>
           </span>
