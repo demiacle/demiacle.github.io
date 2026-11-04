@@ -23,6 +23,10 @@ export default function Header() {
             <Separator />
             <a className={styles.link} href={href} target="_blank" rel="noopener noreferrer">
               {label}
+              <span className={styles.external} aria-hidden="true">
+                ↗
+              </span>
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </span>
         ))}

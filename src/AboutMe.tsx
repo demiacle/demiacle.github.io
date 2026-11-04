@@ -33,7 +33,7 @@ function Skill({ name, rating }: { name: string; rating: number }) {
         ))}
       </span>
       <span className={styles.skillName}>{name}</span>
-      <span className={styles.srOnly}>{`, ${rating} out of ${MAX_RATING}`}</span>
+      <span className="sr-only">{`, ${rating} out of ${MAX_RATING}`}</span>
     </li>
   );
 }

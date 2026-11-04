@@ -36,20 +36,28 @@
   opacity: 0.4;
 }
 
+/* Teal (vs. the white name) marks these as links; the underline appears only on interaction. */
 .link {
-  color: inherit;
+  color: var(--color-accent-bright);
   text-decoration: underline;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: transparent;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.3em;
-  transition:
-    color var(--duration) var(--ease),
-    text-decoration-color var(--duration) var(--ease);
+  transition: text-decoration-color var(--duration) var(--ease);
 }
 
-.link:hover {
-  color: var(--color-accent-bright);
-  text-decoration-color: var(--color-accent-bright);
+.link:hover,
+.link:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+/* External-link arrow; decorative, so it is hidden from screen readers in the markup. */
+.external {
+  display: inline-block; /* keeps the hover underline off the arrow */
+  margin-left: 0.15em;
+  font-size: 0.7em;
+  vertical-align: 0.35em;
+  text-shadow: none;
 }
 
 @media (min-width: 30rem) {
