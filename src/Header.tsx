@@ -5,6 +5,23 @@ const LINKS = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-escobedo-b5165779/' },
 ];
 
+function ExternalArrow() {
+  return (
+    <svg
+      className={styles.external}
+      viewBox="0 0 12 12"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3.5 8.5 8.5 3.5M4.5 3.5h4v4" />
+    </svg>
+  );
+}
+
 function Separator() {
   return (
     <span className={styles.separator} aria-hidden="true">
@@ -23,9 +40,7 @@ export default function Header() {
             <Separator />
             <a className={styles.link} href={href} target="_blank" rel="noopener noreferrer">
               {label}
-              <span className={styles.external} aria-hidden="true">
-                ↗
-              </span>
+              <ExternalArrow />
               <span className="sr-only"> (opens in new tab)</span>
             </a>
           </span>

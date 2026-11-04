@@ -36,28 +36,42 @@
   opacity: 0.4;
 }
 
-/* Teal (vs. the white name) marks these as links; the underline appears only on interaction. */
+/* Teal (vs. the white name) marks these as links; hover brightens to white with a teal glow. */
 .link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2em;
   color: var(--color-accent-bright);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.3em;
-  transition: text-decoration-color var(--duration) var(--ease);
+  text-decoration: none;
+  transition:
+    color var(--duration) var(--ease),
+    text-shadow var(--duration) var(--ease);
 }
 
 .link:hover,
 .link:focus-visible {
-  text-decoration-color: currentColor;
+  color: var(--color-text-strong);
+  text-shadow:
+    var(--shadow-text),
+    0 0 12px rgba(19, 200, 193, 0.6);
 }
 
-/* External-link arrow; decorative, so it is hidden from screen readers in the markup. */
+/* External-link arrow (inline SVG, decorative); nudges up-right on hover. */
 .external {
-  display: inline-block; /* keeps the hover underline off the arrow */
-  margin-left: 0.15em;
-  font-size: 0.7em;
-  vertical-align: 0.35em;
-  text-shadow: none;
+  width: 0.55em;
+  height: 0.55em;
+  margin-top: -0.35em;
+  flex-shrink: 0;
+  opacity: 0.75;
+  transition:
+    transform var(--duration) var(--ease),
+    opacity var(--duration) var(--ease);
+}
+
+.link:hover .external,
+.link:focus-visible .external {
+  opacity: 1;
+  transform: translate(0.08em, -0.08em);
 }
 
 @media (min-width: 30rem) {
