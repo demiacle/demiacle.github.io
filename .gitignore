@@ -3,3 +3,7 @@ node_modules/
 dist/
 .DS_Store
 *.log
+
+# mcp-demo
+mcp-demo/notes.json
+__pycache__/

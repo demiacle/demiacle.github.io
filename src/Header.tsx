@@ -2,7 +2,7 @@ import styles from './Header.module.css';
 
 const LINKS = [
   { label: 'GitHub', href: 'https://github.com/demiacle' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-escobedo-b5165779/' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-escobedo-demiacle/' },
 ];
 
 function ExternalArrow() {

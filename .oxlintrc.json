@@ -8,7 +8,7 @@
   "env": {
     "browser": true
   },
-  "ignorePatterns": ["dist", "public", "media-unused"],
+  "ignorePatterns": ["dist", "public", "media-unused", "mcp-demo"],
   "rules": {
     "react/rules-of-hooks": "error",
     "react/exhaustive-deps": "warn",

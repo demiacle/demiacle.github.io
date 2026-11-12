@@ -7,25 +7,36 @@ describe('App', () => {
   it('has one h1 and a labelled projects section', () => {
     render(<App />);
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
-    expect(screen.getByRole('region', { name: /projects/i })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: /professional work/i })).toBeInTheDocument();
   });
 
-  it('renders one card per project, linking only those with a URL', () => {
+  it('renders one case-study card per featured project, linking only those with a URL', () => {
     render(<App />);
-    const section = screen.getByRole('region', { name: /projects/i });
+    const section = screen.getByRole('region', { name: /professional work/i });
     const cards = within(section).getAllByRole('article');
-    expect(cards).toHaveLength(projects.length);
+    const featured = projects.filter((p) => p.featured);
+    expect(featured.length).toBeGreaterThan(0);
+    expect(cards).toHaveLength(featured.length);
 
-    projects.forEach((project, i) => {
+    featured.forEach((project, i) => {
       const card = within(cards[i]);
       expect(card.getByRole('heading', { level: 3 })).toHaveTextContent(project.title);
       const link = card.queryByRole('link');
       if (project.url_link) {
         expect(link).toHaveAttribute('href', project.url_link);
+        expect(link).toHaveAttribute('target', '_blank');
+        expect(link).toHaveAccessibleName(`Visit ${project.title} (opens in new tab)`);
       } else {
         expect(link).toBeNull();
       }
     });
+  });
+
+  it('keeps the animated background out of the accessibility tree', () => {
+    render(<App />);
+    const section = screen.getByRole('region', { name: /professional work/i });
+    const svg = section.querySelector('svg');
+    expect(svg?.closest('[aria-hidden="true"]')).not.toBeNull();
   });
 
   it('gives every header link an accessible name', () => {

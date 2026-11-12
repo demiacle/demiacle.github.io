@@ -25,6 +25,7 @@
   /* Text */
   --color-text: #dddddd;
   --color-text-strong: #ffffff;
+  --color-text-soft: #ece8df; /* off-white for the intro and section titles */
   --color-link: #6abaff;
 
   /* Code-card syntax colors */
@@ -36,6 +37,9 @@
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  /* Web fonts for the intro only; system fonts above stay the fallbacks. */
+  --font-display: 'IBM Plex Mono', var(--font-mono);
+  --font-body: 'IBM Plex Sans', var(--font-sans);
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-md: 1.125rem;
@@ -57,6 +61,12 @@
   --radius-md: 6px;
   --radius-lg: 10px;
   --shadow-text: 1px 1px 1px #000;
+  /* Backdrop shared by the intro panel and the section titles. */
+  --backdrop-bg: rgba(1, 24, 38, 0.92);
+  --backdrop-border: 1px solid var(--color-line-accent);
+  --backdrop-glow: inset 0 0 138px var(--color-surface-glow);
+  --shadow-intro-text:
+    0 2px 3px rgba(0, 0, 0, 0.95), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(0, 0, 0, 0.6);
   --shadow-panel: 0 -20px 104px var(--color-bg-deep);
   --shadow-portrait: 0 6px 80px #000f13;
   --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.35);

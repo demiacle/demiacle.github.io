@@ -7,5 +7,7 @@ export interface Project {
   img_poster: string;
   sort_order: number;
   url_link?: string;
-  [field: string]: string | number | undefined;
+  /** Shown as a full-width case study instead of in the "more work" list. */
+  featured?: boolean;
+  [field: string]: string | number | boolean | undefined;
 }

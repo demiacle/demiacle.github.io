@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="300" viewBox="0 0 540 300">
+  <!-- TEMP placeholder screenshot. Replace with a real 540x300 image. -->
+  <rect width="540" height="300" fill="#011826"/>
+  <g fill="none" stroke="#0a5b5e" stroke-width="1" opacity="0.6">
+    <path d="M0 60H540M0 120H540M0 180H540M0 240H540M90 0V300M180 0V300M270 0V300M360 0V300M450 0V300"/>
+  </g>
+  <g fill="none" stroke="#098266" stroke-width="1.5">
+    <path d="M60 230L170 150 260 190 380 90 480 130"/>
+  </g>
+  <g fill="#13c8c1">
+    <circle cx="60" cy="230" r="4"/><circle cx="170" cy="150" r="4"/><circle cx="260" cy="190" r="4"/>
+    <circle cx="380" cy="90" r="4"/><circle cx="480" cy="130" r="4"/>
+  </g>
+  <text x="270" y="282" text-anchor="middle" fill="#8290b0" font-family="Menlo, Consolas, monospace" font-size="14">// screenshot coming soon</text>
+</svg>

@@ -14,8 +14,9 @@
     box-shadow var(--duration) var(--ease);
 }
 
-.card[data-linked]:hover,
-.card:focus-within {
+/* Only the screenshot is a link, so only hovering or focusing it lifts the card. */
+.card:has(.imageLink:hover),
+.card:has(.imageLink:focus-visible) {
   border-color: var(--color-accent-bright);
   box-shadow: var(--shadow-card-hover);
   transform: translateY(-2px);
@@ -30,137 +31,215 @@
   opacity: 0.3;
 }
 
+.media {
+  position: relative;
+  border-bottom: 1px solid var(--color-line-strong);
+}
+
 .image {
+  display: block;
   width: 100%;
   aspect-ratio: 540 / 300;
   object-fit: cover;
-  border-bottom: 1px solid var(--color-line-strong);
   background-color: var(--color-bg-deep);
 }
 
-/* The title link covers the whole card, so the card is one click/tab target. */
-.link {
+/* Optional label over the screenshot (`image_note` in a project file). */
+.note {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border: var(--backdrop-border);
+  border-radius: 999px;
+  background-color: var(--backdrop-bg);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.media:has(.note) .image {
+  filter: saturate(0.6) brightness(0.85);
+}
+
+/* Phones: cards span the screen, so no outline, rounding or image divider. */
+@media (max-width: 39.99rem) {
+  .card {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .media {
+    border-bottom: 0;
+  }
+}
+
+/* Wide screens: screenshot and text side by side, alternating sides per card. */
+@media (min-width: 52rem) {
+  .card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .media {
+    height: 100%;
+    border-bottom: 0;
+    border-right: 1px solid var(--color-line-strong);
+  }
+
+  .image {
+    height: 100%;
+  }
+
+  .card[data-flip] .media {
+    order: 2;
+    border-right: 0;
+    border-left: 1px solid var(--color-line-strong);
+  }
+}
+
+/* Screenshot link: opens the project in a new tab. */
+.imageLink {
+  display: block;
+  height: 100%;
   color: inherit;
   text-decoration: none;
 }
 
-.link::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-}
-
-.link:focus-visible {
-  outline: none;
-}
-
-.link:focus-visible::after {
+.imageLink:focus-visible {
   outline: 2px solid var(--color-accent-bright);
   outline-offset: -2px;
 }
 
-/* Code block: function newProject( title ){ var properties = {...}; return properties; } */
-.function {
-  padding: var(--space-4) var(--space-4) var(--space-6);
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  line-height: 1.75;
-  text-align: left;
-  color: var(--color-syntax);
+.visit {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border: var(--backdrop-border);
+  border-radius: 999px;
+  background-color: var(--backdrop-bg);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
 }
 
-.function h3 {
+.imageLink:hover .visit,
+.imageLink:focus-visible .visit {
+  opacity: 1;
+  transform: none;
+}
+
+/* Touch screens can't hover, so keep the hint visible there. */
+@media (hover: none) {
+  .visit {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Card text */
+.body {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  text-align: left;
+  color: var(--color-text);
+}
+
+.title {
   margin: 0;
-  color: var(--color-string);
-  font-size: var(--text-md);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-string);
   text-shadow: var(--shadow-text);
 }
 
-.function h3::before,
-.function h3::after {
-  color: var(--color-syntax);
-  font-size: var(--text-sm);
-  font-weight: 400;
-  text-shadow: none;
-}
-
-.function h3::before {
-  content: '( ';
-}
-
-.function h3::after {
-  content: ' ) => {';
-}
-
-.function::after {
-  content: '}';
-  display: block;
-}
-
-.function ul {
+.about {
   margin: 0;
-  padding-left: 2ch;
+  font-size: var(--text-md);
+  color: var(--color-text-soft);
+  text-wrap: pretty;
 }
 
-.function ul::before {
-  content: 'var properties = {';
+.features {
+  margin: 0;
+  padding-left: 1.1em;
+  color: var(--color-text);
 }
 
-.function ul::after {
-  content: '}\Areturn properties;';
-  white-space: pre;
+.features li::marker {
+  color: var(--color-accent);
 }
 
-.function ul li {
-  margin-left: 2ch;
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 0;
+  padding: 0;
   list-style: none;
-  overflow-wrap: anywhere;
 }
 
-.function ul li span {
-  color: var(--color-key);
-  font-weight: 700;
+.stack li {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--color-text);
 }
 
-.function ul li span::after {
-  content: ': ';
-  color: var(--color-syntax);
-  font-weight: 400;
+.extra {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--text-sm);
 }
 
-.function .in_quotes {
-  color: var(--color-string);
-  font-weight: 400;
-}
-
-.function .in_quotes::before {
-  content: '"';
-  color: var(--color-syntax);
-}
-
-.function .in_quotes::after {
-  content: '",';
+.extra dt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--color-syntax);
 }
 
-.function ul li:last-child .in_quotes::after {
-  content: '"';
+.extra dd {
+  margin: 0;
 }
 
-/* Wide cards get the full `function newProject(` signature (was a viewport media query). */
+/* Unfilled fields ("TODO: ...") read as placeholders, not content. */
+.todo {
+  color: var(--color-syntax);
+  font-style: italic;
+  text-decoration: underline dashed var(--color-syntax);
+  text-underline-offset: 0.25em;
+}
+
+.stack li.todo {
+  border-style: dashed;
+}
+
 @container (min-width: 22rem) {
-  .function {
-    padding-inline: var(--space-6);
-  }
-
-  .function h3::before {
-    content: 'function newProject( ';
-  }
-
-  .function h3::after {
-    content: ' ){';
+  .body {
+    padding: var(--space-8) var(--space-6);
   }
 }

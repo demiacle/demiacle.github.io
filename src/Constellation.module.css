@@ -1,0 +1,85 @@
+/* Stays put while the sky drifts inside it, so the fade stays at the top edge. */
+.frame {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12rem);
+  mask-image: linear-gradient(to bottom, transparent, #000 12rem);
+}
+
+/*
+ * The sky is taller and wider than the panel so it can drift (60px right,
+ * 1000px down, same as the old background-position animation). Moving it with
+ * transform keeps the drift on the GPU instead of repainting every frame.
+ */
+.sky {
+  position: absolute;
+  top: -1000px;
+  left: -60px;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  will-change: transform;
+  animation: drift 50s ease-in-out alternate infinite;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.lines {
+  fill: none;
+  stroke: #05484a;
+  stroke-width: 1;
+}
+
+.nodes {
+  fill: #06595c;
+}
+
+/* Kept dim on purpose: the cards on top are the content. */
+.twinkle {
+  fill: #2fd1c8;
+  opacity: 0;
+  animation: twinkle var(--dur, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+
+.halo {
+  fill: #13c8c1;
+  opacity: 0.12;
+}
+
+.spark {
+  fill: #9ff7f1;
+  opacity: 0.7;
+}
+
+@keyframes drift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(60px, 1000px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* The global reduced-motion rule stops CSS animations; SMIL needs hiding. */
+@media (prefers-reduced-motion: reduce) {
+  .pulses {
+    display: none;
+  }
+}
