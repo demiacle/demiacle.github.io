@@ -7,7 +7,7 @@ const data: Project = {
   about: 'A landing zone and drop zone management tool used for military risk assessment',
   features:
     'Geo-spatial map visualization using leaflet · Comprehensive survey submission workflow · Robust survey data validation',
-  stack: 'React · Node · Express · MongoDB',
+  stack: 'React · Next.js · Node · Express · MongoDB',
   img_poster: 'talon_point.png',
   url_link: 'https://talonpoint.josce.net/',
   sort_order: 0,
