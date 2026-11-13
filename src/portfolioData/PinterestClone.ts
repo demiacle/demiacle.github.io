@@ -5,7 +5,7 @@ const data: Project = {
   goal: 'Pinterest clones are pretty cool!',
   img_poster: 'pic_pac.png',
   url_link: 'https://fcc-pinterest-clone-demiacle.herokuapp.com/',
-  sort_order: 4
+  sort_order: 4,
 };
 
 export default data;

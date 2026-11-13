@@ -5,7 +5,7 @@ const data: Project = {
   goal: 'To work on api chops',
   img_poster: 'night_life.png',
   url_link: 'https://fcc-nightlife-app-demiacle.herokuapp.com/',
-  sort_order: 7
+  sort_order: 7,
 };
 
 export default data;

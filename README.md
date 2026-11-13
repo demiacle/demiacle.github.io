@@ -21,12 +21,12 @@ locally.
 npm run check      # typecheck + lint + format check + tests
 ```
 
-| Script                 | What it does                                                    |
-| ---------------------- | --------------------------------------------------------------- |
-| `npm run typecheck`    | TypeScript in strict mode                                       |
-| `npm run lint`         | oxlint: TypeScript, React hooks and accessibility (jsx-a11y)    |
-| `npm run format`       | Prettier, rewriting files (`format:check` only reports)         |
-| `npm test`             | Vitest + Testing Library (`test:watch` to rerun on save)        |
+| Script              | What it does                                                 |
+| ------------------- | ------------------------------------------------------------ |
+| `npm run typecheck` | TypeScript in strict mode                                    |
+| `npm run lint`      | oxlint: TypeScript, React hooks and accessibility (jsx-a11y) |
+| `npm run format`    | Prettier, rewriting files (`format:check` only reports)      |
+| `npm test`          | Vitest + Testing Library (`test:watch` to rerun on save)     |
 
 The tests check that every project renders as a card, that only projects with a URL are
 linked, that header links have accessible names, and that `public/media/` holds exactly

@@ -4,8 +4,10 @@ import type { Project } from '../types';
 const data: Project = {
   title: 'Rapid-GIS',
   featured: true,
-  about: 'A tool suite for org management and aircraft site survey data collection and visualization',
-  features: 'Geo-spatial data visualization in 3d using Mapbox · Organizational RBAC · Compliant form PDF generation',
+  about:
+    'A tool suite for org management and aircraft site survey data collection and visualization',
+  features:
+    'Geo-spatial data visualization in 3d using Mapbox · Organizational RBAC · Compliant form PDF generation',
   stack: 'React · Node · Express · MongoDB',
   img_poster: 'rapid_gis.jpg',
   url_link: 'https://specialtacticssolutions.com/rapid-gis/',

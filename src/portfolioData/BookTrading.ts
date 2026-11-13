@@ -5,7 +5,7 @@ const data: Project = {
   goal: 'Work on my react chops',
   img_poster: 'book_trading.png',
   url_link: 'https://fcc-book-trading-demiacle.herokuapp.com/',
-  sort_order: 5
+  sort_order: 5,
 };
 
 export default data;

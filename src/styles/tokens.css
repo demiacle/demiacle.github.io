@@ -34,8 +34,8 @@
   --color-key: #67a6e3;
 
   /* Type */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
   /* Web fonts for the intro only; system fonts above stay the fallbacks. */
   --font-display: 'IBM Plex Mono', var(--font-mono);

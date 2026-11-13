@@ -83,7 +83,12 @@ export default function Constellation() {
       <div className={styles.sky}>
         <svg className={styles.svg} xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="constellation-tile" width={TILE} height={TILE} patternUnits="userSpaceOnUse">
+            <pattern
+              id="constellation-tile"
+              width={TILE}
+              height={TILE}
+              patternUnits="userSpaceOnUse"
+            >
               <g transform={`scale(${SCALE})`}>
                 <g className={styles.lines}>
                   {LINES.map((d) => (

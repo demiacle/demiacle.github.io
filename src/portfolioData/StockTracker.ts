@@ -5,7 +5,7 @@ const data: Project = {
   goal: 'Work on websocket chops',
   img_poster: 'stock_tracker.png',
   url_link: 'https://fcc-stock-market-demiacle.herokuapp.com/',
-  sort_order: 12
+  sort_order: 12,
 };
 
 export default data;

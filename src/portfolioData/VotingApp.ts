@@ -5,7 +5,7 @@ const data: Project = {
   goal: 'Level up twitter api chops',
   img_poster: 'vote_app.png',
   url_link: 'https://fcc-voting-app-demiacle.herokuapp.com/',
-  sort_order: 13
+  sort_order: 13,
 };
 
 export default data;

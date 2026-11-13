@@ -51,12 +51,7 @@ export default function PortfolioItem({ data, flip = false }: { data: Project; f
     >
       <div className={styles.media}>
         {url_link ? (
-          <a
-            className={styles.imageLink}
-            href={url_link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className={styles.imageLink} href={url_link} target="_blank" rel="noopener noreferrer">
             {screenshot}
             <span className={styles.visit} aria-hidden="true">
               Visit site ↗

@@ -5,7 +5,7 @@ const data: Project = {
   goal: 'Practice JWT & SQL',
   img_poster: 'nextstep.png',
   url_link: 'http://next-step.tk/',
-  sort_order: 2
+  sort_order: 2,
 };
 
 export default data;

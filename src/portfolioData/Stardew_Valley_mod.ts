@@ -6,7 +6,7 @@ const data: Project = {
   status: 'On Hold',
   img_poster: 'stardew_optimized.jpg',
   url_link: 'https://github.com/demiacle/SMAPI-QualityOfLifeMods',
-  sort_order: 17
+  sort_order: 17,
 };
 
 export default data;

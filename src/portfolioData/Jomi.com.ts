@@ -3,8 +3,7 @@ import type { Project } from '../types';
 const data: Project = {
   title: 'Jomi.com',
   featured: true,
-  about:
-    'Academic medical journal publishing peer-reviewed surgical videos',
+  about: 'Academic medical journal publishing peer-reviewed surgical videos',
   features:
     'Surgical video streaming · Editorial CMS for articles and videos · Institutional access for hospitals and medical schools',
   stack: 'React · Node · Express · MongoDB',

@@ -7,7 +7,7 @@ const data: Project = {
   challenges_completed: '282',
   img_poster: 'fcc.jpg',
   url_link: 'https://www.freecodecamp.org/demiacle',
-  sort_order: 9
+  sort_order: 9,
 };
 
 export default data;

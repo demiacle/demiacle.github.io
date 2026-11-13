@@ -17,7 +17,8 @@ export default function AboutMe() {
         </h1>
         {/* DRAFT positioning line for review; replace with your own words. */}
         <p className={styles.lede}>
-          I bring digital ideas to life, building everything from the underlying systems to the experiences people interact with.
+          I bring digital ideas to life, building everything from the underlying systems to the
+          experiences people interact with.
         </p>
       </div>
     </section>
